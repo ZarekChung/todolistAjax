@@ -25,7 +25,8 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
-
+    #render :json =>{ :id => @todo.id}
+    render :json => { :id => @todo.id }
   end
 
   def toggle_check
@@ -34,7 +35,7 @@ class TodosController < ApplicationController
     # 加上驚歎號表示會直接存入資料庫（否則要另外 save)
     # ref: http://api.rubyonrails.org/classes/ActiveRecord/Persistence.html#method-i-toggle
     @todo.toggle!(:done)
-    
+
   end
 
   def edit
