@@ -34,8 +34,15 @@
 </div>
 
 <script>
+$(function(){
+  // always pass csrf tokens on ajax calls
+  $.ajaxSetup({
+    headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
+  });
+});
+
 $(".delete-todo").on("click",function(e){
-  var id = event.target.parentNode.parentNode.id;
+  var id = e.target.parentNode.parentNode.id;
   console.log(id);
 
   $.ajax({
