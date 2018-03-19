@@ -41,7 +41,7 @@ $(function(){
   });
 });
 
-$(".delete-todo").on("click",function(e){
+$("#todolist").on("click", ".delete-todo", function(e) {
   var id = e.target.parentNode.parentNode.id;
   console.log(id);
 
